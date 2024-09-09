@@ -2,7 +2,7 @@
 le va a dar una query y recibe un resultado devolviendolo como obj
 cada pool de conexion es unica, abriendose para obtener datos y cerrandose despues de obtenerlos */
 const mysql = require('mysql2/promise');
-const config = require('././config');
+const config = require('../config');
 
 // generamos la conexion
 const connection = mysql.createConnection({
