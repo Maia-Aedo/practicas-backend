@@ -1,8 +1,24 @@
 const express = require('express');
+const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
+var cors = require('cors');
+
 const app = express();
 
+app.use(cors());
 app.use(cookieParser());
+
+// CONFIGS
+app.set("port", 3000);
+app.use(express.urlencoded({ extended: false }));
+// transforma todas las peticiones en formato json
+app.use(express.json());
+
+// MIDDLEWARES
+app.use(morgan("dev"));
+
+// exportamos para que sea visible en el resto del proyecto
+module.exports = app;
 
 app.get('/', (req, res) =>{
     res.cookie('sessionId', '12345678', {
@@ -29,6 +45,4 @@ app.get('/modify-cookie', (req, res) =>{
     res.send('cookie modificada');
 });
 
-app.listen(3000, ()=> {
-    console.log('servidor corriendo en el puerto 3000');
-});
+
