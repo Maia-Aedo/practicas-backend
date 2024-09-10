@@ -2,6 +2,7 @@
 const { Router } = require('express');
 // metodos de controlador
 const methods = require('../controllers/users.controller');
+const method = require('../controllers/upload-file.controller');
 // autenticacion
 const { authenticateJWT } = require('../middlewares/jwt');
 
@@ -15,6 +16,8 @@ router.post('/users/login', methods.login);
 /* colocamos el middleware para evitar que cualquiera que consulte el endpoint vea el token
 que solo se puede conseguir mediante autenticacion en login */
 router.get('/users/:id', authenticateJWT, methods.getOne);
+// solo los usuarios logeados pueden cargar archivos
+router.post('/upload', authenticateJWT, method.postFile);
 
 // exportamos router
 module.exports = router;
