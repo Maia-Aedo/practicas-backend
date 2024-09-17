@@ -7,7 +7,7 @@ var cors = require('cors');
 const fileUpload = require('express-fileupload');
 
 //routes
-const users = require('./routes/users.routes')
+const users = require('./routes/routes')
 const files = require('./routes/upload-file.routes')
 
 // express

@@ -1,8 +1,8 @@
 // router para usar metodos POST-PUT-GET-DELETE-PATCH
 const { Router } = require('express');
 // metodos de controlador
-const methods = require('../controllers/users.controller');
-const method = require('../controllers/upload-file.controller');
+const methods = require('../controllers/users.controller.js/index.js');
+const method = require('../controllers/upload-file.controller.js');
 // autenticacion
 const { authenticateJWT } = require('../middlewares/jwt');
 
