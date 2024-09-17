@@ -1,5 +1,4 @@
 const app = require('./app');
-
 // socket
 const http = require('http');
 // para usar socket con express, creamos servidor http
